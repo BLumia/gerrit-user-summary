@@ -51,7 +51,10 @@ def main():
 		elif o in ("-a", "--account"):
 			accountId = a
 		elif o in ("-c", "--count"):
-			summaryCount = a
+			if a.isdigit():
+				summaryCount = int(a)
+			else:
+				assert False, "argument not valid"
 		elif o in ("-h", "--help"):
 			usage()
 			exit()
@@ -69,7 +72,7 @@ def main():
 	# exit("asd")
 	print("Loading summary from `" + baseUrl + "`")
 	print("Account: `" + accountId + "`")
-	print("Request summary count: " + summaryCount + "\n")
+	print("Request summary count: " + str(summaryCount) + "\n")
 
 	with request.urlopen(requestUrl) as url:
 		rawData = url.read().decode()
