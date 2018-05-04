@@ -1,4 +1,4 @@
-from pyquery import PyQuery as H
+# from pyquery import PyQuery as H
 import urllib.request as request
 import urllib.parse as parse
 import collections
@@ -36,6 +36,7 @@ def main():
 		# print help information and exit:
 		print(str(err))  # will print something like "option -a not recognized"
 		print("Argument not correct")
+		print("Try `{0} -h` to see usage.".format(sys.argv[0]))
 		sys.exit(2)
 
 	global baseUrl
